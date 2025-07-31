@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PatientModel } from '../model/patient-model';
-import { Observable, map } from 'rxjs';
+import { Observable, map } from 'rxjs'; // Observa la respuesta de la api y la transforma
 
 @Injectable({
   providedIn: 'root',

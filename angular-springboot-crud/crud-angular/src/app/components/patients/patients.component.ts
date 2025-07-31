@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { error } from 'console';
 import { PatientModel } from 'src/app/model/patient-model';
 import { PatientService } from 'src/app/service/patient.service';
 
@@ -14,10 +13,12 @@ import Swal from 'sweetalert2';
 export class PatientsComponent implements OnInit {
   listPatients: PatientModel[] = [];
   formPatient: FormGroup = new FormGroup({});
-  isUpdate: boolean = false;
+  isUpdate: boolean = false; // Indica si se está actualizando un paciente
 
+  // Inyecta el servicio de pacientes
   constructor(private patientService: PatientService) {}
 
+  // Inicitaliza el componente y carga la lista de pacientes
   ngOnInit(): void {
     this.list();
     this.formPatient = new FormGroup({
@@ -142,11 +143,13 @@ export class PatientsComponent implements OnInit {
     });
   }
 
+  // Resetea el formulario para agregar un nuevo paciente
   newPatient() {
     this.isUpdate = false;
     this.formPatient.reset();
   }
 
+  // Selecciona un paciente de la lista para editar
   selectItem(patient: any) {
     this.isUpdate = true;
     this.formPatient.controls['patientID'].setValue(patient.patientID);
