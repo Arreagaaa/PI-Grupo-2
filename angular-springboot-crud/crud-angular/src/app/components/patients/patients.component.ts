@@ -46,6 +46,7 @@ export class PatientsComponent implements OnInit {
     });
   }
 
+  // Guarda o actualiza un paciente según el estado del formulario
   save() {
     this.patientService.savePatient(this.formPatient.value).subscribe(
       (res) => {
