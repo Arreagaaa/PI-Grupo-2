@@ -16,17 +16,19 @@ import org.springframework.http.ResponseEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*; // Importa las clases necesarias para las aserciones de pruebas.
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 
 class PatientUnitTest {
 
-    @Mock
+    @Mock // Crea una falsa instancia (simulada) de una clase para poder probar sin usar
+          // la clase real.
     private IPatientService patientService;
 
-    @InjectMocks
+    @InjectMocks // Inyecta los @Mock dentro de la clase que estamos probando, para que funcione
+                 // con las dependencias simuladas.
     private PatientController patientController;
 
     @BeforeEach

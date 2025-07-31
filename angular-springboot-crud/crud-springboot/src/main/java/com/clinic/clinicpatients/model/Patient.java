@@ -2,7 +2,7 @@ package com.clinic.clinicpatients.model;
 
 import lombok.Data;
 
-@Data
+@Data // Lombok will generate getters, setters, toString, equals, and hashCode methods
 public class Patient {
     private int patientID;
     private String name;

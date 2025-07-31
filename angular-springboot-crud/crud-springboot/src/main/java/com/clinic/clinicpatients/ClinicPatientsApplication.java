@@ -14,7 +14,7 @@ public class ClinicPatientsApplication {
 		SpringApplication.run(ClinicPatientsApplication.class, args);
 	}
 
-	@Bean
+	@Bean // crea un filtro CORS para permitir solicitudes desde el frontend
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();

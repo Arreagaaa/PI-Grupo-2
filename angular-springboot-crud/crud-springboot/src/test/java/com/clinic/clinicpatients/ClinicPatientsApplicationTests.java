@@ -6,7 +6,7 @@ import com.clinic.clinicpatients.model.ServiceResponse;
 import com.clinic.clinicpatients.service.IPatientService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.mockito.Mockito; // Es una simulación de una clase real que usamos en pruebas para no depender de la base de datos ni del backend real.
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -24,19 +24,21 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 class ClinicPatientsApplicationTests {
 
-	@Autowired
+	@Autowired // Inyecta el controlador real que queremos probar, con las dependencias
+				// simuladas.
 	private PatientController patientController;
 
-	@MockBean
+	@MockBean // Parecido a @Mock, pero se usa cuando hacemos pruebas con SpringBootTest y
+				// queremos que Spring reemplace un bean real por un mock.
 	private IPatientService patientService;
 
 	@BeforeEach
-    public void setUp() {
-        when(patientService.findAll()).thenReturn(new ArrayList<>());
-        when(patientService.save(Mockito.any(Patient.class))).thenReturn(1); 
-        when(patientService.update(Mockito.any(Patient.class))).thenReturn(1); 
-        when(patientService.deleteById(Mockito.anyInt())).thenReturn(1); 
-    }
+	public void setUp() {
+		when(patientService.findAll()).thenReturn(new ArrayList<>());
+		when(patientService.save(Mockito.any(Patient.class))).thenReturn(1);
+		when(patientService.update(Mockito.any(Patient.class))).thenReturn(1);
+		when(patientService.deleteById(Mockito.anyInt())).thenReturn(1);
+	}
 
 	@Test
 	public void testListPatients() {

@@ -13,7 +13,7 @@ public class PatientService implements IPatientService {
     @Autowired
     private IPatientRepository iPatientRepository;
 
-    @Override
+    @Override // Anotación que indica que este método es parte de la interfaz IPatientService.
     public List<Patient> findAll() {
         List<Patient> list;
         try {
